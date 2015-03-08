@@ -79,3 +79,6 @@ URL: www.frog-test.com
 		export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/var/www/frog.com/llvm-gcc4.2-2.9-x86_64-linux/bin"
 	#**3.2 Add KLEE Dependency
 	$sudo apt-get install g++ curl dejagnu subversion bison flex bc libcap-dev
+
+# Step4: Install FROG tools
+	$ sudo apt-get install astyle
