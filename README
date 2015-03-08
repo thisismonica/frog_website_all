@@ -77,3 +77,5 @@ URL: www.frog-test.com
 		export C_INCLUDE_PATH=/usr/include/x86_64-linux-gnu
 		export CPLUS_INCLUDE_PATH=/usr/include/x86_64-linux-gnu
 		export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/var/www/frog.com/llvm-gcc4.2-2.9-x86_64-linux/bin"
+	#**3.2 Add KLEE Dependency
+	$sudo apt-get install g++ curl dejagnu subversion bison flex bc libcap-dev

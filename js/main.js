@@ -355,8 +355,6 @@ function replayTestCases(id){
         type: "POST", 
         data: {function_id: fun_id},
         success: function(msg){
-alert(msg);
-
 		var json="";
 		eval('json='+msg+';');
 

@@ -184,14 +184,28 @@
         </div>
       </div>
     </div>
-    <!-- Generate Test Suite -->
+
+    <!-- Create test file -->
     <div class="row">
       <div class="col-md-8">
-        <button type="button" id="generate-test-button" data-loading-text="Generating..." class="btn btn-success" autocomplete="off">
-        <span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>  Generate Test Suite</button>
+        <button type="button" id="create-test-button" data-loading-text="Creating..." class="btn btn-success" autocomplete="off">
+        <span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span> Create Test File </button>
       </div>
     </div>
+
   </div>
+
+   <!-- Generate Test Suite -->
+    <div hidden id = "generate-test-row" class="container">
+    <hr>
+     <div class="row">
+      <div class="col-md-8">
+        <button  type="button" id="generate-test-button" data-loading-text="Generating..." class="btn btn-success" autocomplete="off">
+        <span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>  Generate Test Suite</button>
+      </div>
+     </div>
+    </div>
+
   <!-- End of Function List--> 
 
   <!-- Test case list -->
@@ -252,14 +266,25 @@
   });
 
   /*
+   * button to create test file
+   */
+   $('#create-test-button').on('click', function () {
+	var $btn = $(this).button('loading');
+
+	// Get selected funciton id/ Instrument source code
+	var radio = $('input[name="function_id"]:checked').val();
+	createTestFile(radio);
+       
+	$btn.button('reset');
+	$('#generate-test-row').show("slow");
+   });
+
+  /*
    * button function to generate test cases
    */
   $('#generate-test-button').on('click', function () {
     var $btn = $(this).button('loading');
-
-    // Get selected funciton id/ Instrument source code
     var radio = $('input[name="function_id"]:checked').val();
-    createTestFile(radio);
     compile(radio); // Compile, run, replay
 
     //$btn.button('reset');
