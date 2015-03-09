@@ -20,8 +20,8 @@
     <div>
       <ul class="nav navbar-nav">
         <li ><a href="/frog_test.php"> Source Code</a></li>
-        <li><a href="#">Test Suites Generator</a></li>
-        <li><a href="#">Fault Localization</a></li>
+        <li><a href="/testgenerator.html">Test Suites Generator</a></li>
+        <li><a href="/faultlocalization.html">Fault Localization</a></li>
       </ul>
     </div>
   </div>
@@ -41,8 +41,14 @@
         <p>Upload&nbsp;&nbsp;Judge&nbsp;&nbsp;Find Bug</p>
       </div>
 
-
+  <form method="post" action="server/login_example.php">
+<p>
     <button id="start-button" type="button" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Start Testing!</button>
+
+	or
+ <button id="example-button" type="submit" class="btn btn-warning btn-lg"><span class="glyphicon glyphicon-expand" aria-hidden="true"></span> View Examples!</button>
+</p>
+ </form>
 
     <div hidden id="user-form">
     <p></p>
@@ -100,6 +106,7 @@
   $('#start-button').on('click', function () {
     $('#user-form').show("slow");
   });
+
   </script>
 </body>
 </html>
