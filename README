@@ -45,7 +45,7 @@ URL: www.frog-test.com
 
 	#**1.3 Install MySQL
 		$ sudo apt-get install mysql-server
-		create Database for frog
+		create Database for frog, set your own root password
 		$ mysql -u root -p
 		mysql> create database login;
 		mysql> grant all on login.* to 'www-data';
