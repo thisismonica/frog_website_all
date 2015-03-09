@@ -38,15 +38,16 @@ function writeToConsole(msg, type)
             resWin3.append("<p class=\"text-"+type+" bold\">"+msg+"</p>");
         }
     }
-    resWin1.scrollTop(resWin1[0].scrollHeight);
-    resWin2.scrollTop(resWin2[0].scrollHeight);
-    resWin3.scrollTop(resWin3[0].scrollHeight);
+    //resWin1.scrollTop(resWin1[0].scrollHeight);
+    //resWin2.scrollTop(resWin2[0].scrollHeight);
+    //resWin3.scrollTop(resWin3[0].scrollHeight);
 }
 
 /* 
  * Function to move console to position number
  */
 function showConsole(console_id){
+    var height = 0;
     switch(console_id){
         case 1:
             $('#console-div1').show();
@@ -57,7 +58,8 @@ function showConsole(console_id){
         case 2:
             $('#console-div1').hide();
             $('#console-div2').show();
-	    $('#console2').height(100);
+	    height = $('#function-list-table').height();
+	    $('#console2').height(height);
             $('#console-div3').hide();
         break;
         case 3:

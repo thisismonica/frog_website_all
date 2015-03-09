@@ -142,12 +142,14 @@ function call_extract_function_script(){
                 }else{
                     $('#function-list').show("slow");    
                 }
-                // Move console and page position
-                showConsole(2); 
-                window.location.href = "#step3"; 
-                      
+                                      
                 clearTable();
                 drawTable(json['content']);                      
+
+		// Move console and page position
+                showConsole(2); 
+                window.location.href = "#step3"; 
+
             }else{
                 writeToConsole(json['msg'], 'danger');
             }
@@ -298,9 +300,13 @@ function compile(id){
 
             if(json['success']){
                 writeToConsole(json['msg']);
+
+		// Set progress bar
+		$('#progress-bar').css('width','20%');
+
+		// Run KLEE
 		writeToConsole("Running KLEE...");
 		runKLEE(fun_id);
-                //replayTestCases();
             }
             else{
                 // Display error message
@@ -330,6 +336,9 @@ function runKLEE(id){
 		eval('json='+msg+';');
 
 		if(json['success']){
+			// Set progress bar
+			$('#progress-bar').css('width','70%');
+
 			writeToConsole(json['msg']);
 			writeToConsole("Replaying test cases...");
 			replayTestCases(id);			
@@ -361,6 +370,9 @@ function replayTestCases(id){
 		if(json['success']){
 		    writeToConsole(json['msg']);
 
+	            // Set progress bar
+		    $('#progress-bar').css('width','100%');
+
 		    clearTestSuiteTable();
 		    drawTestSuiteTable( json['test_output']);
 
@@ -372,6 +384,8 @@ function replayTestCases(id){
                         $('#test-suite').show("slow");    
                     }
                     showConsole(3);
+		    
+		    $('#progress-div').hide();
 
 		}else{
 			writeToConsole(json['msg'],"danger");

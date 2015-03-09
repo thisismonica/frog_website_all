@@ -158,11 +158,12 @@
   <!-- Function List--> 
   <div hidden class="container" id="function-list">
     <hr>
-    <div class="row">
-      <div class="col-md-8">
-        <div  class="panel panel-info" >
+    <div class="row" >
+      <!-- Function list table-->
+      <div class="col-md-8" >
+        <div  class="panel panel-info" id = "function-list-panel" >
             <div class="panel-heading">Function List</div>
-            <div class="panel-body">
+            <div class="panel-body" id="function-list-panel-body">
             <form id="function-list-form">
             <table class="table", id="function-list-table">
               <thead>
@@ -174,18 +175,18 @@
             </table>
             </form>
             </div>
-            </div>
-      </div>
+         </div>
+      </div> <!-- End of function list table-->
       <!-- Console2 -->
       <div hidden class="col-md-4" id="console-div2">
         <div class="panel panel-warning" >
         <div class="panel-heading">Testing Console</div>
         <div class="panel-body"><div class=scroll id="console2"></div></div>
         </div>
-      </div>
+      </div> <!-- End of console2 -->
     </div>
 
-    <!-- Create test file -->
+    <!-- Create test file button -->
     <div class="row">
       <div class="col-md-8">
         <button type="button" id="create-test-button" data-loading-text="Creating..." class="btn btn-success" autocomplete="off">
@@ -194,8 +195,9 @@
     </div>
 
   </div>
+  <!-- End of Function List--> 
 
-   <!-- Generate Test Suite -->
+   <!-- Generate Test Suite button -->
     <div hidden id = "generate-test-row" class="container">
     <hr>
      <div class="row">
@@ -204,9 +206,17 @@
         <span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>  Generate Test Suite</button>
       </div>
      </div>
+	<p></p>
+	<div class="row">
+	<div class="col-md-8">
+	<div hidden class="progress" id="progress-div">
+	  <div class="progress-bar progress-bar-success progress-bar-striped" id="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+	    <span class="sr-only">40% Complete (success)</span>
+	  </div>
+	</div>
+	</div>
+	</div>
     </div>
-
-  <!-- End of Function List--> 
 
   <!-- Test case list -->
   <div hidden id="test-suite" class="container">
@@ -284,10 +294,14 @@
    */
   $('#generate-test-button').on('click', function () {
     var $btn = $(this).button('loading');
+
+    // ReSet progress bar
+    $('#progress-bar').css('width','0%');
+
+    $('#progress-div').show();
+
     var radio = $('input[name="function_id"]:checked').val();
     compile(radio); // Compile, run, replay
-
-    //$btn.button('reset');
   });
 
   /*
