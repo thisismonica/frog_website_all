@@ -57,8 +57,8 @@
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li ><a href="/frog_test.php"> Source Code</a></li>
-        <li><a href="#">Test Suites Generator</a></li>
-        <li><a href="#">Fault Localization</a></li>
+        <li><a href="/testgenerator.html">Test Suites Generator</a></li>
+        <li><a href="/faultlocalization.html">Fault Localization</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
       <?php 
