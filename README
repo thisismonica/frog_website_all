@@ -51,7 +51,7 @@ URL: www.frog-test.com
 		mysql> grant all on login.* to 'www-data';
 		mysql> quit;
 		initialize Database for frog
-		mysql -u root -p < server/initialze.sql
+		mysql -u root -p < server/initialize.sql
 
 	#**1.4 Install PHP
 		$sudo apt-get install php5 php-pear
