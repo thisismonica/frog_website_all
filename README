@@ -18,7 +18,9 @@ URL: www.frog-test.com
 #---------------------------------------------------------------------------
 
 # Step0 : download source
-	$ sudo cd /var/www
+	$ sudo mkdir /var/www/frog.com
+	copy source code into directory (do not forget the dot in the end)
+	$ cd /var/ww/frog.com
 	$ sudo git clone https://github.com/wqr619/frog_website_all.git .
 
 # Step1 : Install/Configure LAMP (Web Developement Software)
@@ -61,7 +63,7 @@ URL: www.frog-test.com
 		$sudo service apache2 restart
 
 # Step2: Set permission for frog
-	$ sudo cd /var/www
+	$ cd /var/www
 	change owner of frog source code to yourself
 	$ sudo chown -R your_username frog.com
 	change group of frog soure code to Apache
@@ -71,12 +73,13 @@ URL: www.frog-test.com
 
 # Step3: KLEE Configuration
 	#**3.1 Add llvm-gcc to Apache path
-	$ sudo vim /etc/apache/envvars
+	$ sudo vim /etc/apache2/envvars
 	Add the following lines to file:
 
 		export C_INCLUDE_PATH=/usr/include/x86_64-linux-gnu
 		export CPLUS_INCLUDE_PATH=/usr/include/x86_64-linux-gnu
 		export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/var/www/frog.com/llvm-gcc4.2-2.9-x86_64-linux/bin"
+
 	#**3.2 Add KLEE Dependency
 	$sudo apt-get install g++ curl dejagnu subversion bison flex bc libcap-dev
 
